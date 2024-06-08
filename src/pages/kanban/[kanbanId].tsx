@@ -7,6 +7,7 @@ import {
 import { updateTaskOrderRequest } from "@/api/controller/TaskController";
 import Column from "@/components/Column";
 import KanbanHeader from "@/components/KanbanHeader";
+import { foundBoardType } from "@/interfaces/Board";
 import { DragDropContext, Draggable, Droppable } from "@hello-pangea/dnd";
 import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/router";
@@ -155,6 +156,27 @@ const KanbanPage = () => {
   useEffect(() => {
     if (isFetched && kanbanList) {
       const { columns, foundBoard } = kanbanList;
+
+      const boardsHistoryString = localStorage.getItem("boards");
+      let boardsHistory: foundBoardType[] = [];
+
+      if (boardsHistoryString) {
+        try {
+          boardsHistory = JSON.parse(boardsHistoryString);
+          if (!Array.isArray(boardsHistory)) {
+            boardsHistory = [];
+          }
+        } catch (e) {
+          console.error("Failed to parse boards from localStorage", e);
+          boardsHistory = [];
+        }
+      }
+
+      const updatedBoardsHistory = boardsHistory.filter(
+        (board) => board.id !== foundBoard.id
+      );
+      updatedBoardsHistory.unshift(foundBoard);
+      localStorage.setItem("boards", JSON.stringify(updatedBoardsHistory));
 
       const data: any = {};
       const colOrder: any = [];
