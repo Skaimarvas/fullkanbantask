@@ -1,0 +1,162 @@
+{
+	"info": {
+		"_postman_id": "508b4428-b299-4972-a8a3-f7d1b1a56f8f",
+		"name": "Kanban",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31964883"
+	},
+	"item": [
+		{
+			"name": "GetKanbanBoard",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/kanban/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"kanban",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetKanbanBoardList",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/kanbanlist",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"kanbanlist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateKanbanBoard",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Sample\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/kanban",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"kanban"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateKanbanBoardColumnsOrder",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"boardDataId\": 1,\r\n  \"updatedColumnOrders\": [1,2,3,4]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/kanban",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"kanban"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateTask",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Sample Task\",\r\n  \"description\": \"Sample description\",\r\n  \"status\": \"Sample Status\",\r\n  \"color\": \"bg-[#C340A1]\",\r\n  \"columnId\": 2,\r\n  \"boardId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/task",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"task"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateTasksOrder",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"columnId\": 1,\r\n  \"updatedTaskOrder\": [15,14,1,2],\r\n  \"itemId\": \"\",\r\n  \"newColumnId\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/task/move",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"task",
+						"move"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
