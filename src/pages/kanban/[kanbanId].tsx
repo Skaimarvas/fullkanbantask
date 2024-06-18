@@ -18,12 +18,11 @@ const KanbanPage = () => {
   const { kanbanId } = router.query;
 
   // Show a loading state if kanbanId is not yet available
-  if (!kanbanId) {
-    return <div>Loading...</div>;
-  }
+
   const {
     data: kanbanList,
     isFetched,
+    isFetching,
     refetch,
   } = getKanbanBoardQuery(Number(kanbanId));
 
@@ -202,6 +201,15 @@ const KanbanPage = () => {
       setItems(itemsData);
     }
   }, [kanbanList, isFetched]);
+
+  if (isFetching) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        Loading...
+      </div>
+    );
+  }
+
   return (
     <div className="flex flex-col">
       {kanbanList?.foundBoard?.title && (
@@ -251,6 +259,7 @@ const KanbanPage = () => {
                   </Draggable>
                 );
               })}
+              {provided.placeholder}
             </div>
           )}
         </Droppable>
