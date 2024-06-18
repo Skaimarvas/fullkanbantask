@@ -74,7 +74,7 @@ To set up the project locally, follow these steps:
 4. **Run the development server:**
 
    ```bash
-   node server.js
+   ...src/kanban-api node index.js
    ```
 
    Open [http://localhost:3001](http://localhost:3001) with your browser to see the result.
@@ -86,7 +86,7 @@ To set up the project locally, follow these steps:
 To start the development server, use:
 
 ```bash
-node server.js
+...src/kanban-api node index.js
 ```
 
 ### Production
@@ -108,17 +108,21 @@ npm run dev
     |-- components/       # React components
         |-- ui/           # Reusable UI components used across different parts of the application
     |-- interfaces/       # TypeScript interfaces and types used for type checking and ensuring type safety
-    |-- lib/               # Utility functions and shared libraries that can be used across the application
+    |-- kanban-api/
+    |-- config/           # Configuration files for the API (database config, API keys, etc.)
+    |-- models/           # Database models representing entities
+    |-- routes/           # API route definitions (using Express Router)
+    |-- services/         # Business logic (services) that interact with the database via models
+    |-- index.js          # Entry point for the Kanban API, where you initialize Express and define middleware
+    |-- lib/              # Utility functions and shared libraries that can be used across the application
     |-- mock/             # Mock data for testing and development purposes, simulating API responses or sample data
     |-- pages/            # Next.js pages
     |-- styles/           # Global styles
-
-|-- .env.development            # Environment variables (not included in version control)
+|-- .env                  # Environment-specific variables (e.g., API keys, database connection strings)(not included in version control)
+|-- .env.development      # Environment variables (not included in version control)
 |-- next.config.js        # Next.js configuration file
 |-- package.json          # Node.js dependencies and scripts
 |-- README.md             # Project documentation
-|-- server.js             # Custom server configuration for handling API routes or enhancing the default Next.js server
-|-- config.js             # Centralized configuration settings, often used to manage environment-specific variables and settings
 ```
 
 ## Api Endpoints
