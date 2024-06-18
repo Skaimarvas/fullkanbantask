@@ -22,7 +22,7 @@ export const getKanbanBoardListQuery = () =>
   });
 
 export const getKanbanBoardListRequest = (): Promise<boardListGetType[]> =>
-  axios.get(`/kanbanlist`).then((res) => res.data);
+  axios.get(`/kanban/list`).then((res) => res.data);
 
 export const createKanbanBoardRequest = (form: createBoardType) =>
   axios.post(`/kanban`, form);
