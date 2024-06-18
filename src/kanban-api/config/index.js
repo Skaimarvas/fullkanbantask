@@ -2,8 +2,6 @@ const dotenv = require("dotenv");
 
 dotenv.config({ path: "../../.env" });
 
-console.log("PROCESS ENV IN KANBAN API", process.env);
-
 module.exports = {
   development: {
     username: process.env.DB_USERNAME,
