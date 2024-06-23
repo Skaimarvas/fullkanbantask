@@ -109,11 +109,11 @@ npm run dev
         |-- ui/           # Reusable UI components used across different parts of the application
     |-- interfaces/       # TypeScript interfaces and types used for type checking and ensuring type safety
     |-- kanban-api/
-    |-- config/           # Configuration files for the API (database config, API keys, etc.)
-    |-- models/           # Database models representing entities
-    |-- routes/           # API route definitions (using Express Router)
-    |-- services/         # Business logic (services) that interact with the database via models
-    |-- index.js          # Entry point for the Kanban API, where you initialize Express and define middleware
+        |-- config/           # Configuration files for the API (database config, API keys, etc.)
+        |-- models/           # Database models representing entities
+        |-- routes/           # API route definitions (using Express Router)
+        |-- services/         # Business logic (services) that interact with the database via models
+        |-- index.js          # Entry point for the Kanban API, where you initialize Express and define middleware
     |-- lib/              # Utility functions and shared libraries that can be used across the application
     |-- mock/             # Mock data for testing and development purposes, simulating API responses or sample data
     |-- pages/            # Next.js pages
